@@ -1,6 +1,6 @@
 ﻿using Models.Generics;
 
-namespace Models.Subject
+namespace Models.Common.Subject
 {
     public class SubjectInformation
     {

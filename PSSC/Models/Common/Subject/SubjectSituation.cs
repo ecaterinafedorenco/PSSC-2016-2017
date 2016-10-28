@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Subject
+namespace Models.Common.Subject
 {
     public class SubjectSituation
     {

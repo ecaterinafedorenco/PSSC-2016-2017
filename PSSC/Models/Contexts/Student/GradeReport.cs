@@ -1,5 +1,5 @@
-﻿using Models.Generics;
-using Models.Subject;
+﻿using Models.Common.Subject;
+using Models.Generics;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Student
+namespace Models.Contexts.Student
 {
     //Aggregate Root
     public class GradeReport
     {
-        private ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> _gradeReport;
+        private HashSet<EnrolledSubject> _gradeReport { get; set; }
 
-        public GradeReport(ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> gradeReport)
+        public GradeReport(HashSet<EnrolledSubject> gradeReport)
         {
             _gradeReport = gradeReport;
         }
 
         public SubjectSituation GetSubjectSituation(PlainText subjectName)
         {
-            return _gradeReport.First(d => d.Key.Name == subjectName).Value;
+            return null;
         }
     }
 }

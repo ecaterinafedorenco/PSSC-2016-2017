@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Professor
+namespace Models.Common.Professor
 {
     //Entity
     public class Professor

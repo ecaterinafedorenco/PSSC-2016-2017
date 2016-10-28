@@ -1,4 +1,5 @@
 ﻿using Models.Generics;
+using Models.Contexts.Student;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Subject
+namespace Models.Common.Subject
 {
     //Entity
     public class Subject
