@@ -39,8 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deanship\IReportPublisher.cs" />
-    <Compile Include="Deanship\StudyYear.cs" />
+    <Compile Include="Common\IGradeable.cs" />
+    <Compile Include="Common\IStudent.cs" />
+    <Compile Include="Domains\Deanship\IReportPublisher.cs" />
+    <Compile Include="Domains\Deanship\StudyYear.cs" />
+    <Compile Include="Domains\Deanship\StudyYearFactory.cs" />
+    <Compile Include="Domains\Professor\SubjectsFactory.cs" />
+    <Compile Include="Domains\Student\GradeReportFactory.cs" />
     <Compile Include="Generics\Attendence.cs" />
     <Compile Include="Generics\Credits.cs" />
     <Compile Include="Generics\Exceptions\InvalidCreditsValue.cs" />
@@ -48,11 +53,11 @@
     <Compile Include="Generics\PlainText.cs" />
     <Compile Include="Generics\Proportion.cs" />
     <Compile Include="Generics\RegistrationNumber.cs" />
-    <Compile Include="Professor\Professor.cs" />
-    <Compile Include="Professor\Subjects.cs" />
+    <Compile Include="Domains\Professor\Professor.cs" />
+    <Compile Include="Domains\Professor\Subjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student\GradeReport.cs" />
-    <Compile Include="Student\Student.cs" />
+    <Compile Include="Domains\Student\GradeReport.cs" />
+    <Compile Include="Domains\Student\Student.cs" />
     <Compile Include="Subject\EvaluationType.cs" />
     <Compile Include="Subject\Subject.cs" />
     <Compile Include="Subject\SubjectInformation.cs" />
