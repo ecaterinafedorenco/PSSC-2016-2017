@@ -12,6 +12,7 @@ namespace Models.Contexts.Student
     //Aggregate Root
     public class GradeReport
     {
+        //TODO: Override equals / gethash / implement IEquatable for subject
         private HashSet<EnrolledSubject> _gradeReport { get; set; }
 
         public GradeReport(HashSet<EnrolledSubject> gradeReport)
@@ -19,9 +20,13 @@ namespace Models.Contexts.Student
             _gradeReport = gradeReport;
         }
 
-        public SubjectSituation GetSubjectSituation(PlainText subjectName)
+        public ViewableSituation GetSubjectSituation(PlainText subjectName)
         {
-            return null;
+            ViewableSituation situation;
+
+            situation = _gradeReport.First(d => d.Name == subjectName).Situation;
+
+            return situation;
         }
     }
 }

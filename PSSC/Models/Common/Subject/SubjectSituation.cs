@@ -7,52 +7,40 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Subject
 {
-    public class SubjectSituation
+    public abstract class SubjectSituation
     {
-        public Attendance Attendance { get; internal set; }
-        public List<Grade> ExamGrades { get; internal set; }
-        public Grade ActivityGrade { get; internal set; }
+        protected Attendance _attendance { get; set; }
+        protected List<Grade> _examGrades { get; set; }
+        protected List<Grade> _activityGrades { get; set; }
 
         public SubjectSituation()
         {
 
         }
 
-        public SubjectSituation(Attendance attendance, List<Grade> examGrades, Grade activityGrade)
+        public SubjectSituation(Attendance attendance, List<Grade> examGrades, List<Grade> activityGrade)
         {
-            Attendance = attendance;
-            ExamGrades = examGrades;
-            ActivityGrade = activityGrade;
+            _attendance = attendance;
+            _examGrades = examGrades;
+            _activityGrades = activityGrade;
         }
 
-        public void AddExamGrade(Grade examGrade)
-        {
-            ExamGrades.Add(examGrade);
-        }
-
-        public void AddActivityGrade(Grade activityGrade)
-        {
-            ActivityGrade = activityGrade;
-        }
-
-        public void AddAttendance(Attendance attendance)
-        {
-            Attendance = attendance;
-        }
-
-        public decimal GetExamAverage(EvaluationType type)
+        public Grade GetActivityAverage()
         {
             Grade average;
 
-            if(type.Equals(EvaluationType.Distributed))
-            {
-                average = new Grade((ExamGrades[0].Value + ExamGrades[1].Value) / 2);
-            } else
-            {
-                average = new Grade(ExamGrades[0].Value);
-            }
+            average = new Grade(_activityGrades.Aggregate(0.0m, (acc, curr) => acc + curr.Value) / _activityGrades.Count);
 
-            return average.Value;
+            return average;
+        }
+
+        public Grade GetExamAverage()
+        {
+            Grade average;
+            
+            average = new Grade(_examGrades.Aggregate(0.0m, (acc, curr) => acc + curr.Value) / _examGrades.Count);
+
+            return average;
         }
     }
 }

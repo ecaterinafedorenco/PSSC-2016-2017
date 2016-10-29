@@ -39,10 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Subject\ViewableSituation.cs" />
     <Compile Include="Contexts\Deanship\IReportPublisher.cs" />
     <Compile Include="Contexts\Deanship\StudyYear.cs" />
     <Compile Include="Contexts\Deanship\StudyYearFactory.cs" />
+    <Compile Include="Contexts\Professor\GradeableSituation.cs" />
     <Compile Include="Contexts\Professor\SubjectsFactory.cs" />
+    <Compile Include="Contexts\Professor\TeachingSubject.cs" />
     <Compile Include="Contexts\Student\EnrolledSubject.cs" />
     <Compile Include="Contexts\Student\GradeReportFactory.cs" />
     <Compile Include="Generics\Attendence.cs" />
@@ -59,7 +62,6 @@
     <Compile Include="Common\Student\Student.cs" />
     <Compile Include="Common\Subject\EvaluationType.cs" />
     <Compile Include="Common\Subject\Subject.cs" />
-    <Compile Include="Common\Subject\SubjectInformation.cs" />
     <Compile Include="Common\Subject\SubjectSituation.cs" />
   </ItemGroup>
   <ItemGroup />
