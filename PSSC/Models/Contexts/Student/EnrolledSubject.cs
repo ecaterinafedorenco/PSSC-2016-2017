@@ -1,4 +1,5 @@
 ﻿using Models.Common.Subject;
+using Models.Generics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace Models.Contexts.Student
         public Common.Professor.Professor Professor { get; set; }
         public ViewableSituation Situation { get; set; }
 
-        public EnrolledSubject(ViewableSituation situation, Common.Professor.Professor professor)
+        public EnrolledSubject(ViewableSituation situation, Common.Professor.Professor professor, PlainText subjectName, Credits credits)
+            : base(subjectName, credits)
         {
             Situation = situation;
             Professor = professor;

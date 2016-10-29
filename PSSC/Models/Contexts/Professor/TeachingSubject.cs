@@ -14,7 +14,8 @@ namespace Models.Contexts.Professor
 
         public Proportion ActivityProportion { get; internal set; }
 
-        public TeachingSubject(Dictionary<Common.Student.Student, GradeableSituation> enrolledStudents)
+        public TeachingSubject(Dictionary<Common.Student.Student, GradeableSituation> enrolledStudents, PlainText subjectName, Credits credits)
+            : base(subjectName, credits)
         {
             _enrolledStudents = enrolledStudents;
         }

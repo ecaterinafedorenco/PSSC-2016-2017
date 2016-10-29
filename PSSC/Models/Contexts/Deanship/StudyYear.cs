@@ -12,37 +12,44 @@ namespace Models.Contexts.Deanship
     //Aggregate Root
     public class StudyYear
     {
-        private List<Subject> _definedSubjects;
-        public ReadOnlyCollection<Subject> Subjects { get { return _definedSubjects.AsReadOnly(); } }
+        private List<DefinableSubject> _definedSubjects;
+        public ReadOnlyCollection<DefinableSubject> Subjects { get { return _definedSubjects.AsReadOnly(); } }
 
         public StudyYear()
         {
 
         }
 
-        public StudyYear(List<Subject> definedSubjects)
+        public StudyYear(List<DefinableSubject> definedSubjects)
         {
             _definedSubjects = definedSubjects;
         }
 
-        public void DefineSubject(PlainText subjectName, Credits credits, EvaluationType type, Proportion activity)
+        public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents, 
+            EvaluationType type, Common.Professor.Professor professor, Proportion activity)
         {
-            _definedSubjects.Add(new Subject(new SubjectInformation(subjectName, credits, type, activity)));
+            _definedSubjects.Add(new DefinableSubject(subjectName, credits, enrolledStudents, type, professor, activity));
         }
 
-        public void DefineSubject(PlainText subjectName, Credits credits, EvaluationType type, Proportion activity, Common.Professor.Professor professor)
+        public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
+            EvaluationType type, Common.Professor.Professor professor)
         {
-            _definedSubjects.Add(new Subject(new SubjectInformation(subjectName, credits, type, activity, professor)));
+            _definedSubjects.Add(new DefinableSubject(subjectName, credits, enrolledStudents, type, professor));
         }
 
-        public void SignUpStudentToSubject(PlainText subjectName, Common.Student.Student student)
+        public void EnrollStudentToSubject(PlainText subjectName, Common.Student.Student student)
         {
-            _definedSubjects.Find(d => d.SubjectInfo.Name == subjectName).SignUpStudent(student);
+            _definedSubjects.Find(d => d.Name == subjectName).EnrollStudent(student);
         }
 
         public Grade CalculateStudentAverage(PlainText subjectName, RegistrationNumber regNumber)
         {
-            return _definedSubjects.Find(d => d.SubjectInfo.Name == subjectName).GetAverageForStudent(regNumber);
+            return _definedSubjects.Find(d => d.Name == subjectName).GetStudentAverage(regNumber);
+        }
+        
+        public ViewableSituation GetStudentSituation(PlainText subjectName, RegistrationNumber regNumber)
+        {
+            return _definedSubjects.Find(d => d.Name == subjectName).GetStudentSituation(regNumber);
         }
 
         public void PublishGradeReports(IReportPublisher publisher)

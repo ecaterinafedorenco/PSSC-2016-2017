@@ -14,6 +14,11 @@ namespace Models.Common.Subject
         public ReadOnlyCollection<Grade> ExamGrades { get { return _examGrades.AsReadOnly(); } }
         public ReadOnlyCollection<Grade> ActivityGrades { get { return _activityGrades.AsReadOnly(); } }
 
+        public ViewableSituation()
+        {
+
+        }
+
         public ViewableSituation(Attendance att, List<Grade> examGrades, List<Grade> activityGrades) 
             : base(att, examGrades, activityGrades)
         {
