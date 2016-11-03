@@ -10,7 +10,7 @@ namespace Models.Generics.ValueObjects
 
         public Credits(int credits)
         {
-            Contract.Requires<InvalidCreditsValueException>(credits > 0 && credits < 15, "Invalid value for credits!");
+            Contract.Requires<InvalidCreditsValueException>(credits >= 0 && credits <= 60, "Invalid value for credits!");
             
             _credits = credits;
         }
