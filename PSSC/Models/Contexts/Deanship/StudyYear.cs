@@ -44,8 +44,6 @@ namespace Models.Contexts.Deanship
         public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType type, Common.Professor.Professor professor, Proportion prop)
         {
-            Contract.Requires(subjectName != null, "Subject name is null!");
-            Contract.Requires(credits != null, "Credits is null!");
             Contract.Requires(prop != null, "Proportion is null!");
             Contract.Requires(professor != null, "Professor is null!");
             Contract.Requires(enrolledStudents != null, "Enrolled students list is null!");
@@ -56,8 +54,6 @@ namespace Models.Contexts.Deanship
         public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType type, Common.Professor.Professor professor)
         {
-            Contract.Requires(subjectName != null, "Subject name is null!");
-            Contract.Requires(credits != null, "Credits is null!");
             Contract.Requires(professor != null, "Professor is null!");
             Contract.Requires(enrolledStudents != null, "Enrolled students list is null!");
 
