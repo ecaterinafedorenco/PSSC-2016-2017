@@ -2,6 +2,7 @@
 using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Models.Contexts.Professor
         public TeachingSubject(Dictionary<Common.Student.Student, GradeableSituation> enrolledStudents, PlainText subjectName, Credits credits)
             : base(subjectName, credits)
         {
+            Contract.Requires(enrolledStudents != null, "Enrolled students list is null!");
+
             _enrolledStudents = enrolledStudents;
         }
         
