@@ -1,4 +1,4 @@
-﻿using Models.Generics;
+﻿using Models.Generics.ValueObjects;
 
 namespace Models.Common.Subject
 {

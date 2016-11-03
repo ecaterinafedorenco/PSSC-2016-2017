@@ -1,5 +1,5 @@
 ﻿using Models.Common.Subject;
-using Models.Generics;
+using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +20,7 @@ namespace Models.Contexts.Professor
             _enrolledStudents = enrolledStudents;
         }
 
+        //un parametru pt data
         public void AddExamGrade(RegistrationNumber regNumber, Grade grade)
         {
             _enrolledStudents.First(d => d.Key.RegNumber == regNumber)
@@ -34,6 +35,7 @@ namespace Models.Contexts.Professor
 
         public void AddAttendance(RegistrationNumber regNumber, Attendance attendance)
         {
+            //prezenta 
             _enrolledStudents.First(d => d.Key.RegNumber == regNumber)
                 .Value.Attendance = attendance;
         }

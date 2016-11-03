@@ -1,5 +1,5 @@
 ﻿using Models.Common.Subject;
-using Models.Generics;
+using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,11 +12,12 @@ namespace Models.Contexts.Student
     //Aggregate Root
     public class GradeReport
     {
-        //TODO: Override equals / gethash / implement IEquatable for subject
+        public RegistrationNumber Id { get; internal set; }
         private HashSet<EnrolledSubject> _gradeReport { get; set; }
 
-        public GradeReport(HashSet<EnrolledSubject> gradeReport)
+        public GradeReport(RegistrationNumber id, HashSet<EnrolledSubject> gradeReport)
         {
+            Id = id;
             _gradeReport = gradeReport;
         }
 

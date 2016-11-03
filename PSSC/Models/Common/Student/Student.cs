@@ -1,4 +1,4 @@
-﻿using Models.Generics;
+﻿using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

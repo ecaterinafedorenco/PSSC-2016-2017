@@ -1,4 +1,4 @@
-﻿using Models.Generics;
+﻿using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +10,7 @@ namespace Models.Common.Subject
 {
     public class ViewableSituation : SubjectSituation
     {
+        //lista de prezente
         public int Attendance { get { return _attendance.Count; } }
         public ReadOnlyCollection<Grade> ExamGrades { get { return _examGrades.AsReadOnly(); } }
         public ReadOnlyCollection<Grade> ActivityGrades { get { return _activityGrades.AsReadOnly(); } }
