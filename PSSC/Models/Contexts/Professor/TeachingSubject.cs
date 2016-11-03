@@ -19,8 +19,7 @@ namespace Models.Contexts.Professor
         {
             _enrolledStudents = enrolledStudents;
         }
-
-        //un parametru pt data
+        
         public void AddExamGrade(RegistrationNumber regNumber, Grade grade)
         {
             _enrolledStudents.First(d => d.Key.RegNumber == regNumber)
@@ -35,14 +34,16 @@ namespace Models.Contexts.Professor
 
         public void AddAttendance(RegistrationNumber regNumber, Attendance attendance)
         {
-            //prezenta 
             _enrolledStudents.First(d => d.Key.RegNumber == regNumber)
                 .Value.Attendances.Add(attendance);
         }
 
         public void ModifyExamGrade(RegistrationNumber regNumber, Grade grade)
         {
-            //TODO
+            Common.Student.Student key = _enrolledStudents.First(d => d.Key.RegNumber == regNumber).Key;
+            int index = _enrolledStudents[key].ExamGrades.FindIndex(d => d.Date.Equals(grade.Date));
+
+            _enrolledStudents[key].ExamGrades[index] = grade;
         }
 
         public void SetActivityProportion(Proportion proportion)
