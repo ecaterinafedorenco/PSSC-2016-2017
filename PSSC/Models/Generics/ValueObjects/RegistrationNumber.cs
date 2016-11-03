@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace Models.Generics.ValueObjects
 
         public RegistrationNumber(string number)
         {
+            Contract.Requires(number.Length > 3 && number.Length <= 10, "Invalid registration number length!");
+
             _number = number;
         }
     }

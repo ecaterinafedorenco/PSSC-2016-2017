@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Models.Generics.Exceptions;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,13 +19,14 @@ namespace Models.Generics.ValueObjects
 
         public Grade(decimal value)
         {
+            Contract.Requires<InvalidGradeValueException>(value > 0 && value <= 10, "Invalid value for grade!");
+
             _value = value;
         }
 
-        public Grade(DateTime date, decimal value)
+        public Grade(DateTime date, decimal value) : this(value)
         {
             _date = date;
-            _value = value;
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace Models.Generics.ValueObjects
+﻿using Models.Generics.Exceptions;
+using System;
+using System.Diagnostics.Contracts;
+
+namespace Models.Generics.ValueObjects
 {
     public class Proportion
     {
@@ -8,6 +12,10 @@
 
         public Proportion(int numerator, int denominator)
         {
+            Contract.Requires(numerator > 0, "Numerator must be positive!");
+            Contract.Requires(denominator > 0, "Denominator must be positive!");
+            Contract.Requires<HighNumeratorException>(numerator < denominator, "Numerator is higher than denominator!");
+
             _numerator = numerator;
             _denominator = denominator;
         }

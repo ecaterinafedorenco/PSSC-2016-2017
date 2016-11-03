@@ -1,19 +1,17 @@
-﻿namespace Models.Generics.ValueObjects
+﻿using Models.Generics.Exceptions;
+using System.Diagnostics.Contracts;
+
+namespace Models.Generics.ValueObjects
 {
     public class Credits
     {
-        private const int _maxCredits = 60;
-        public static int MAX { get { return _maxCredits; } }
-
         private int _credits;
-        public int Count { get { return _credits; } set { _credits = value; } }
-
-        public Credits()
-        {
-        }
+        public int Count { get { return _credits; } }
 
         public Credits(int credits)
         {
+            Contract.Requires<InvalidCreditsValueException>(credits > 0 && credits < 15, "Invalid value for credits!");
+            
             _credits = credits;
         }
     }

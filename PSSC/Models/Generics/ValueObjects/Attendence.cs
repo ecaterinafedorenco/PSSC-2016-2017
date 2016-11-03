@@ -9,7 +9,7 @@ namespace Models.Generics.ValueObjects
     public class Attendance
     {
         private DateTime _date;
-        public int Date { get; internal set; }
+        public DateTime Date { get { return _date; } }
 
         public Attendance(DateTime date)
         {
