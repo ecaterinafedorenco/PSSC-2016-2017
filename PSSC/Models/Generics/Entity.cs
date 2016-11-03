@@ -14,25 +14,35 @@ namespace Models.Generics
      * What should a base entity class contain?
      * 1. The Id of course (Table key)
      * 2. Common logic
+     * 
+     * https://vaughnvernon.co/?p=879
+     * http://enterprisecraftsmanship.com/2014/11/08/domain-object-base-class/
+     * http://stackoverflow.com/questions/6218328/base-classes-entity-and-valueobject-in-domain-driven-design
+     * http://stackoverflow.com/questions/2326288/implementing-ddd-entity-class-in-c-sharp
      */
 
     public abstract class Entity<T> : IEquatable<T>
     {
         public T Id { get; protected set; }
 
-        public override int GetHashCode()
+        public Entity(T id)
         {
-            return base.GetHashCode();
+            Id = id;
         }
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return this.Equals((T) obj);
         }
 
         public bool Equals(T other)
         {
             return Id.Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return (GetType().ToString() + Id).GetHashCode();
         }
     }
 }

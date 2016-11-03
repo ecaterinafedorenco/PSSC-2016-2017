@@ -49,6 +49,7 @@
     <Compile Include="Contexts\Professor\TeachingSubject.cs" />
     <Compile Include="Contexts\Student\EnrolledSubject.cs" />
     <Compile Include="Contexts\Student\GradeReportFactory.cs" />
+    <Compile Include="Generics\Entity.cs" />
     <Compile Include="Generics\ValueObjects\Attendence.cs" />
     <Compile Include="Generics\ValueObjects\Credits.cs" />
     <Compile Include="Generics\Exceptions\InvalidCreditsValue.cs" />

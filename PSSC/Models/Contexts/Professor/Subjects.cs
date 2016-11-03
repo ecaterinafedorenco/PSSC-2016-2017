@@ -6,16 +6,32 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Common.Subject;
 using Models.Generics.ValueObjects;
+using Models.Generics;
 
 namespace Models.Contexts.Professor
 {
     //Aggregate Root
-    public class Subjects
+    public class Subjects : Entity<Guid>
     {
         private HashSet<TeachingSubject> _subjects { get; set; }
         public ReadOnlyCollection<TeachingSubject> AllSubjects { get { return _subjects.ToList().AsReadOnly(); } }
 
-        public Subjects(HashSet<TeachingSubject> subjects)
+        private Subjects(Guid id) : base(id)
+        {
+
+        }
+
+        private Subjects() : base(Guid.NewGuid())
+        {
+
+        }
+
+        public Subjects(HashSet<TeachingSubject> subjects) : this()
+        {
+            _subjects = subjects;
+        }
+
+        public Subjects(Guid id, HashSet<TeachingSubject> subjects) : this(id)
         {
             _subjects = subjects;
         }

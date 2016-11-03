@@ -13,7 +13,7 @@ namespace Models.Contexts.Student
         public Common.Professor.Professor Professor { get; set; }
         public ViewableSituation Situation { get; set; }
 
-        public EnrolledSubject(ViewableSituation situation, Common.Professor.Professor professor, PlainText subjectName, Credits credits)
+        public EnrolledSubject(PlainText subjectName, Credits credits, ViewableSituation situation, Common.Professor.Professor professor)
             : base(subjectName, credits)
         {
             Situation = situation;

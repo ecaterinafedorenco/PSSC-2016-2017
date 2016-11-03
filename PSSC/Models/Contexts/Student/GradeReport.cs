@@ -1,4 +1,5 @@
 ﻿using Models.Common.Subject;
+using Models.Generics;
 using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,12 @@ using System.Threading.Tasks;
 namespace Models.Contexts.Student
 {
     //Aggregate Root
-    public class GradeReport
+    public class GradeReport : Entity<RegistrationNumber>
     {
-        public RegistrationNumber Id { get; internal set; }
         private HashSet<EnrolledSubject> _gradeReport { get; set; }
 
-        public GradeReport(RegistrationNumber id, HashSet<EnrolledSubject> gradeReport)
+        public GradeReport(RegistrationNumber id, HashSet<EnrolledSubject> gradeReport) : base(id)
         {
-            Id = id;
             _gradeReport = gradeReport;
         }
 

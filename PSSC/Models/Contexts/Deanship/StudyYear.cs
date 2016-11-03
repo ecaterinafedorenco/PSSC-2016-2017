@@ -11,22 +11,32 @@ using System.Threading.Tasks;
 namespace Models.Contexts.Deanship
 {
     //Aggregate Root
-    public class StudyYear
+    public class StudyYear : Entity<Guid>
     {
         private HashSet<DefinableSubject> _definedSubjects;
         public ReadOnlyCollection<DefinableSubject> Subjects { get { return _definedSubjects.ToList().AsReadOnly(); } }
 
-        public StudyYear()
+        private StudyYear(Guid id) : base(id)
         {
 
         }
 
-        public StudyYear(HashSet<DefinableSubject> definedSubjects)
+        private StudyYear() : base(Guid.NewGuid())
+        {
+
+        }
+
+        public StudyYear(Guid id, HashSet<DefinableSubject> definedSubjects) : this(id)
         {
             _definedSubjects = definedSubjects;
         }
 
-        public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents, 
+        public StudyYear(HashSet<DefinableSubject> definedSubjects) : this()
+        {
+            _definedSubjects = definedSubjects;
+        }
+
+        public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType type, Common.Professor.Professor professor, Proportion activity)
         {
             _definedSubjects.Add(new DefinableSubject(subjectName, credits, enrolledStudents, type, professor, activity));
@@ -47,7 +57,7 @@ namespace Models.Contexts.Deanship
         {
             return _definedSubjects.First(d => d.Name == subjectName).GetStudentAverage(regNumber);
         }
-        
+
         public ViewableSituation GetStudentSituation(PlainText subjectName, RegistrationNumber regNumber)
         {
             return _definedSubjects.First(d => d.Name == subjectName).GetStudentSituation(regNumber);

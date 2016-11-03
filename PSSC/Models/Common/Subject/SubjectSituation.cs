@@ -1,4 +1,5 @@
-﻿using Models.Generics.ValueObjects;
+﻿using Models.Generics;
+using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,19 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Subject
 {
-    public abstract class SubjectSituation
+    public abstract class SubjectSituation : Entity<RegistrationNumber> //Guid? 
     {
         protected Attendance _attendance { get; set; }
         protected List<Grade> _examGrades { get; set; }
         protected List<Grade> _activityGrades { get; set; }
 
-        public SubjectSituation()
+        public SubjectSituation(RegistrationNumber regNumber) : base(regNumber)
         {
 
         }
 
-        public SubjectSituation(Attendance attendance, List<Grade> examGrades, List<Grade> activityGrade)
+        public SubjectSituation(RegistrationNumber regNumber, Attendance attendance, List<Grade> examGrades, List<Grade> activityGrade)
+            : base(regNumber)
         {
             _attendance = attendance;
             _examGrades = examGrades;

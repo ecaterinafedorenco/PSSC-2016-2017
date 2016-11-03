@@ -10,18 +10,17 @@ namespace Models.Common.Subject
 {
     public class ViewableSituation : SubjectSituation
     {
-        //lista de prezente
-        public int Attendance { get { return _attendance.Count; } }
+        public Attendance Attendance { get { return _attendance; } }
         public ReadOnlyCollection<Grade> ExamGrades { get { return _examGrades.AsReadOnly(); } }
         public ReadOnlyCollection<Grade> ActivityGrades { get { return _activityGrades.AsReadOnly(); } }
 
-        public ViewableSituation()
+        public ViewableSituation(RegistrationNumber regNumber) : base(regNumber)
         {
 
         }
 
-        public ViewableSituation(Attendance att, List<Grade> examGrades, List<Grade> activityGrades) 
-            : base(att, examGrades, activityGrades)
+        public ViewableSituation(RegistrationNumber regNumber, Attendance att, List<Grade> examGrades, List<Grade> activityGrades) 
+            : base(regNumber, att, examGrades, activityGrades)
         {
 
         }

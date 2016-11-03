@@ -15,7 +15,7 @@ namespace Models.Contexts.Deanship
         public Proportion Proportion { get; internal set; }
 
         private Dictionary<Common.Student.Student, ViewableSituation> _enrolledStudents { get; set; }
-        
+
         public DefinableSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType examType, Common.Professor.Professor professor) : base(subjectName, credits)
         {
@@ -35,7 +35,7 @@ namespace Models.Contexts.Deanship
             _enrolledStudents = enrolledStudents;
         }
 
-        public DefinableSubject(PlainText subjectName, Credits credits, EvaluationType examType, 
+        public DefinableSubject(PlainText subjectName, Credits credits, EvaluationType examType,
             Common.Professor.Professor professor, Proportion proportion) : base(subjectName, credits)
         {
             ExamType = examType;
@@ -47,7 +47,7 @@ namespace Models.Contexts.Deanship
 
         public void EnrollStudent(Common.Student.Student student)
         {
-            _enrolledStudents.Add(student, new ViewableSituation());
+            _enrolledStudents.Add(student, new ViewableSituation(student.RegNumber));
         }
 
         public Grade GetStudentAverage(RegistrationNumber regNumber)
