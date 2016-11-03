@@ -11,11 +11,11 @@ namespace Models.Contexts.Professor
 {
     public class GradeableSituation : SubjectSituation
     {
-        public Attendance Attendance { get { return _attendance; } set { _attendance = value; } }
+        public List<Attendance> Attendances { get { return _attendances; } set { _attendances = value; } }
         public List<Grade> ExamGrades { get { return _examGrades; } set { _examGrades = value; } }
         public List<Grade> ActivityGrades { get { return _activityGrades; } set { _activityGrades = value; } }
 
-        public GradeableSituation(RegistrationNumber regNumber, Attendance att, List<Grade> examGrades, List<Grade> activityGrades)
+        public GradeableSituation(RegistrationNumber regNumber, List<Attendance> att, List<Grade> examGrades, List<Grade> activityGrades)
             : base(regNumber, att, examGrades, activityGrades)
         {
 

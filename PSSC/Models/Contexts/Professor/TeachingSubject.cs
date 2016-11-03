@@ -37,7 +37,7 @@ namespace Models.Contexts.Professor
         {
             //prezenta 
             _enrolledStudents.First(d => d.Key.RegNumber == regNumber)
-                .Value.Attendance = attendance;
+                .Value.Attendances.Add(attendance);
         }
 
         public void ModifyExamGrade(RegistrationNumber regNumber, Grade grade)

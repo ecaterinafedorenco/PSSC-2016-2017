@@ -10,7 +10,7 @@ namespace Models.Common.Subject
 {
     public class ViewableSituation : SubjectSituation
     {
-        public Attendance Attendance { get { return _attendance; } }
+        public ReadOnlyCollection<Attendance> Attendances { get { return _attendances.AsReadOnly(); } }
         public ReadOnlyCollection<Grade> ExamGrades { get { return _examGrades.AsReadOnly(); } }
         public ReadOnlyCollection<Grade> ActivityGrades { get { return _activityGrades.AsReadOnly(); } }
 
@@ -19,7 +19,7 @@ namespace Models.Common.Subject
 
         }
 
-        public ViewableSituation(RegistrationNumber regNumber, Attendance att, List<Grade> examGrades, List<Grade> activityGrades) 
+        public ViewableSituation(RegistrationNumber regNumber, List<Attendance> att, List<Grade> examGrades, List<Grade> activityGrades) 
             : base(regNumber, att, examGrades, activityGrades)
         {
 

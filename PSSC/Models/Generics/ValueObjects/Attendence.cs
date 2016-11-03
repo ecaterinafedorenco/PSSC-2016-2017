@@ -8,12 +8,12 @@ namespace Models.Generics.ValueObjects
 {
     public class Attendance
     {
-        private int _count;
-        public int Count { get; internal set; }
+        private DateTime _date;
+        public int Date { get; internal set; }
 
-        public Attendance(int count)
+        public Attendance(DateTime date)
         {
-            _count = count;
+            _date = date;
         }
     }
 }

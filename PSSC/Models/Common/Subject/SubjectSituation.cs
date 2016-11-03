@@ -10,7 +10,7 @@ namespace Models.Common.Subject
 {
     public abstract class SubjectSituation : Entity<RegistrationNumber> //Guid? 
     {
-        protected Attendance _attendance { get; set; }
+        protected List<Attendance> _attendances { get; set; }
         protected List<Grade> _examGrades { get; set; }
         protected List<Grade> _activityGrades { get; set; }
 
@@ -19,10 +19,10 @@ namespace Models.Common.Subject
 
         }
 
-        public SubjectSituation(RegistrationNumber regNumber, Attendance attendance, List<Grade> examGrades, List<Grade> activityGrade)
+        public SubjectSituation(RegistrationNumber regNumber, List<Attendance> attendances, List<Grade> examGrades, List<Grade> activityGrade)
             : base(regNumber)
         {
-            _attendance = attendance;
+            _attendances = attendances;
             _examGrades = examGrades;
             _activityGrades = activityGrade;
         }
