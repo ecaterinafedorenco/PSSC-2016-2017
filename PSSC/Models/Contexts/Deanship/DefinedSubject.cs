@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Models.Contexts.Deanship
 {
-    public class DefinableSubject : Subject
+    public class DefinedSubject : Subject
     {
         public Common.Professor.Professor Professor { get; internal set; }
         public EvaluationType ExamType { get; internal set; }
@@ -16,7 +16,7 @@ namespace Models.Contexts.Deanship
 
         private Dictionary<Common.Student.Student, ViewableSituation> _enrolledStudents { get; set; }
 
-        public DefinableSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
+        public DefinedSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType examType, Common.Professor.Professor professor) : base(subjectName, credits)
         {
             ExamType = examType;
@@ -25,7 +25,7 @@ namespace Models.Contexts.Deanship
             _enrolledStudents = enrolledStudents;
         }
 
-        public DefinableSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
+        public DefinedSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType examType, Common.Professor.Professor professor, Proportion proportion) : base(subjectName, credits)
         {
             ExamType = examType;
@@ -35,7 +35,7 @@ namespace Models.Contexts.Deanship
             _enrolledStudents = enrolledStudents;
         }
 
-        public DefinableSubject(PlainText subjectName, Credits credits, EvaluationType examType,
+        public DefinedSubject(PlainText subjectName, Credits credits, EvaluationType examType,
             Common.Professor.Professor professor, Proportion proportion) : base(subjectName, credits)
         {
             ExamType = examType;

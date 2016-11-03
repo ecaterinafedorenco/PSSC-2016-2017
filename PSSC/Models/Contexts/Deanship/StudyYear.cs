@@ -13,8 +13,8 @@ namespace Models.Contexts.Deanship
     //Aggregate Root
     public class StudyYear : Entity<Guid>
     {
-        private HashSet<DefinableSubject> _definedSubjects;
-        public ReadOnlyCollection<DefinableSubject> Subjects { get { return _definedSubjects.ToList().AsReadOnly(); } }
+        private HashSet<DefinedSubject> _definedSubjects;
+        public ReadOnlyCollection<DefinedSubject> Subjects { get { return _definedSubjects.ToList().AsReadOnly(); } }
 
         private StudyYear(Guid id) : base(id)
         {
@@ -26,12 +26,12 @@ namespace Models.Contexts.Deanship
 
         }
 
-        public StudyYear(Guid id, HashSet<DefinableSubject> definedSubjects) : this(id)
+        public StudyYear(Guid id, HashSet<DefinedSubject> definedSubjects) : this(id)
         {
             _definedSubjects = definedSubjects;
         }
 
-        public StudyYear(HashSet<DefinableSubject> definedSubjects) : this()
+        public StudyYear(HashSet<DefinedSubject> definedSubjects) : this()
         {
             _definedSubjects = definedSubjects;
         }
@@ -39,13 +39,13 @@ namespace Models.Contexts.Deanship
         public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType type, Common.Professor.Professor professor, Proportion activity)
         {
-            _definedSubjects.Add(new DefinableSubject(subjectName, credits, enrolledStudents, type, professor, activity));
+            _definedSubjects.Add(new DefinedSubject(subjectName, credits, enrolledStudents, type, professor, activity));
         }
 
         public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
             EvaluationType type, Common.Professor.Professor professor)
         {
-            _definedSubjects.Add(new DefinableSubject(subjectName, credits, enrolledStudents, type, professor));
+            _definedSubjects.Add(new DefinedSubject(subjectName, credits, enrolledStudents, type, professor));
         }
 
         public void EnrollStudentToSubject(PlainText subjectName, Common.Student.Student student)
