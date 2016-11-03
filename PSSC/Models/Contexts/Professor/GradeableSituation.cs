@@ -18,7 +18,7 @@ namespace Models.Contexts.Professor
         public GradeableSituation(RegistrationNumber regNumber, List<Attendance> att, List<Grade> examGrades, List<Grade> activityGrades)
             : base(regNumber, att, examGrades, activityGrades)
         {
-
+            
         }
     }
 }

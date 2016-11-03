@@ -2,6 +2,7 @@
 using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace Models.Common.Student
 
         public Student(RegistrationNumber regNumber, PlainText name) : base(regNumber)
         {
+            Contract.Requires(regNumber != null, "Registration number is null!");
+            Contract.Requires(name != null, "Student name is null!");
+
             RegNumber = regNumber;
             Name = name;
         }
@@ -24,6 +28,8 @@ namespace Models.Common.Student
         public Student(RegistrationNumber regNumber, PlainText name, Credits credits)
             : this(regNumber, name)
         {
+            Contract.Requires(credits != null, "Credits is null!");
+
             Credits = credits;
         }
     }

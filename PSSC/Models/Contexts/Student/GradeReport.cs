@@ -4,6 +4,7 @@ using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Models.Contexts.Student
 
         public GradeReport(RegistrationNumber id, HashSet<EnrolledSubject> gradeReport) : base(id)
         {
+            Contract.Requires(gradeReport != null, "Grade report is null!");
+
             _gradeReport = gradeReport;
         }
 

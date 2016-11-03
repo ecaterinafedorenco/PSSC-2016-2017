@@ -2,6 +2,7 @@
 using Models.Generics.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace Models.Contexts.Deanship
 
         private Dictionary<Common.Student.Student, ViewableSituation> _enrolledStudents { get; set; }
 
-        public DefinedSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
-            EvaluationType examType, Common.Professor.Professor professor) : base(subjectName, credits)
+        public DefinedSubject(PlainText subjectName, Credits credits, EvaluationType examType, Common.Professor.Professor professor,
+             Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents) : base(subjectName, credits)
         {
             ExamType = examType;
             Professor = professor;
@@ -25,18 +26,15 @@ namespace Models.Contexts.Deanship
             _enrolledStudents = enrolledStudents;
         }
 
-        public DefinedSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
-            EvaluationType examType, Common.Professor.Professor professor, Proportion proportion) : base(subjectName, credits)
+        public DefinedSubject(PlainText subjectName, Credits credits, EvaluationType examType, Common.Professor.Professor professor, 
+            Proportion proportion, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents)
+            : this(subjectName, credits, examType, professor, proportion)
         {
-            ExamType = examType;
-            Professor = professor;
-            Proportion = proportion;
-
             _enrolledStudents = enrolledStudents;
         }
 
-        public DefinedSubject(PlainText subjectName, Credits credits, EvaluationType examType,
-            Common.Professor.Professor professor, Proportion proportion) : base(subjectName, credits)
+        public DefinedSubject(PlainText subjectName, Credits credits, EvaluationType examType, Common.Professor.Professor professor, 
+            Proportion proportion) : base(subjectName, credits)
         {
             ExamType = examType;
             Professor = professor;
