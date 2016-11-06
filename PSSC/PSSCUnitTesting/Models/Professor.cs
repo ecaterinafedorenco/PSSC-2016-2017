@@ -4,8 +4,8 @@ using NUnit.Framework;
 namespace PSSCUnitTesting
 {
     [TestFixture]
-    public class TestClass
+    public class Professor
     {
-        
+
     }
 }

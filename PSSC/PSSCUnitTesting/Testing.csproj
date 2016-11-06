@@ -54,7 +54,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ValueObjects.cs" />
+    <Compile Include="Models\Professor.cs" />
+    <Compile Include="Models\Deanship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

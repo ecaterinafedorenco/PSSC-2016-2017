@@ -71,6 +71,16 @@ namespace Models.Contexts.Professor
                 .AddAttendance(regNumber, attendance);
         }
 
+        public void ModifyExamGrade(PlainText subjectName, RegistrationNumber regNumber, Grade grade)
+        {
+            Contract.Requires(subjectName != null, "Subject name is null!");
+            Contract.Requires(regNumber != null, "Registration number is null!");
+            Contract.Requires(grade != null, "Grade is null!");
+
+            _subjects.First(d => d.Name == subjectName)
+                .ModifyExamGrade(regNumber, grade);
+        }
+
         public void SetActivityProportion(PlainText subjectName, Proportion proportion)
         {
             Contract.Requires(subjectName != null, "Subject name is null!");
