@@ -1,14 +1,16 @@
 ﻿using System;
 
-namespace Models.Repository.Exceptions
+namespace Models.Generics.Exceptions
 {
     public class SubjectDublicateException : ArgumentException
     {
         public SubjectDublicateException(string message)
             : base(message)
         {
-            throw new ArgumentException("A subject with a given name already exists!");
-
+            if (message == null)
+            {
+                throw new ArgumentException("A subject with a given name already exists!");
+            }
         }
     }
 }

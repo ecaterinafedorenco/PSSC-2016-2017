@@ -101,6 +101,7 @@
     <Compile Include="Generics\Exceptions\ArgumentCannotBeEmptyStringException.cs" />
     <Compile Include="Generics\Exceptions\ArgumentInvalidLengthException.cs" />
     <Compile Include="Generics\Exceptions\InvalidCreditsValue.cs" />
+    <Compile Include="Generics\Exceptions\SubjectDublicateException.cs" />
     <Compile Include="Generics\Grade.cs" />
     <Compile Include="Generics\PlainText.cs" />
     <Compile Include="Generics\Proportion.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="Professor\Professor.cs" />
     <Compile Include="Professor\Subjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Exceptions\SubjectDublicateException.cs" />
     <Compile Include="Repository\GradeReportRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\StudyYearRepository.cs" />

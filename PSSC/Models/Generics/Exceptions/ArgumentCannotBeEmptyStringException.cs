@@ -2,7 +2,7 @@
 
 namespace Models.Generics
 {
-    internal class ArgumentCannotBeEmptyStringException : Exception
+    public class ArgumentCannotBeEmptyStringException : Exception
     {
         public ArgumentCannotBeEmptyStringException(string message)
             : base(message)

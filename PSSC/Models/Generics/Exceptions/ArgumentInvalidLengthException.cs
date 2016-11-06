@@ -2,7 +2,7 @@
 
 namespace Models.Generics.Exceptions
 {
-    class ArgumentInvalidLengthException : ArgumentException
+    public class ArgumentInvalidLengthException : ArgumentException
     {
         public ArgumentInvalidLengthException(string message)
             : base(message)

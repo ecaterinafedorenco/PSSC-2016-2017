@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Generics.Exceptions;
+using System;
 using System.Diagnostics.Contracts;
 
 namespace Models.Generics
@@ -17,7 +18,7 @@ namespace Models.Generics
 
         public Credits(int credits)
         {
-            Contract.Requires<ArgumentException>(credits > 0, "Credits value cannot be < 0!");
+            Contract.Requires<InvalidCreditsValue>(credits > 0, "Credits value cannot be < 0!");
             _credits = credits;
         }
     }
