@@ -23,8 +23,8 @@ Context   - Aggregate root:
 * Professor - Subjects
 * Student	- GradeReport
 
-The Deanship is able to create a new StudyYear and manage all the subjects (Add, Update)
+The Deanship is able to create a new StudyYear and manage all the subjects (Add, Update).
 
-The Professor is able to add grades, attendances and set the activity proportion
+The Professor is able to see all his subjects (TeachingSubject) and the enrolled students. He is able to add grades, attendances and set the activity proportion.
 
-The Student is able to see his grades
+The Student is able to see his grades.
