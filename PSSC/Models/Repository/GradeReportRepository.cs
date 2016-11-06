@@ -4,6 +4,7 @@ using Models.Student;
 
 namespace Models.Repository
 {
+    // Repository for GradeReport aggregat root
     class GradeReportRepository : IRepository<Student.GradeReport>
     {
         public IEnumerable<GradeReport> List

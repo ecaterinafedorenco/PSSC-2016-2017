@@ -17,7 +17,7 @@ namespace Models.Generics
 
         public Credits(int credits)
         {
-            Contract.Requires<ArgumentException>(credits > 0, "credits");
+            Contract.Requires<ArgumentException>(credits > 0, "Credits value cannot be < 0!");
             _credits = credits;
         }
     }

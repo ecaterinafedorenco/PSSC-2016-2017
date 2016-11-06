@@ -8,6 +8,7 @@ using Models.Deanship;
 
 namespace Models.Repository
 {
+    // Repository for StudyYear aggregat root
     public class StudyYearRepository : IRepository<Deanship.StudyYear>
     {
         public IEnumerable<StudyYear> List

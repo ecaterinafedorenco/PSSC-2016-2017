@@ -5,7 +5,8 @@ using System.Collections.ObjectModel;
 
 namespace Models.Deanship
 {
-    //Aggregate Root
+    // Aggregate Root
+    // At the beginning of every year deanship receives a list of subjects and the professor's name for every subject
     public class StudyYear
     {
         private List<Subject.Subject> _definedSubjects;

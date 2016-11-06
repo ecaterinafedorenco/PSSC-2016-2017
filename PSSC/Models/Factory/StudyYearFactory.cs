@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Models.Factory
 {
+    // Creates a StudyYearFactory instance
     public class StudyYearFactory
     {
         public static readonly StudyYearFactory Instance = new StudyYearFactory();
 
-        public StudyYearFactory()
+        private StudyYearFactory()
         { }
 
+        // Creates a StudyYear instance
         public Deanship.StudyYear createInstance(Deanship.StudyYear studyYear)
         {
             return studyYear;

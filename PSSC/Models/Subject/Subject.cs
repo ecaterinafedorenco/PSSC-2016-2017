@@ -35,7 +35,7 @@ namespace Models.Subject
 
         public void SignUpStudent(Student.Student student)
         {
-            Contract.Requires(student != null, "student");
+            Contract.Requires(student != null, "Student cannot be null!");
             _signedUpStudentsGrades.Add(student, new SubjectSituation());
         }
 

@@ -6,41 +6,34 @@ using Models.Student;
 using Models.Subject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ConsoleApplication
 {
     class Program
     {
-        private static Professor professor;
-        private static PlainText nameSubject;
-        private static Credits credits;
         private static SubjectInformation subjectInformation;
-        private static PlainText nameProfessor;
         private static Dictionary<Student, SubjectSituation> signedUpStudentsGrades;
         private static List<Grade> list;
 
         static void Main(string[] args)
         {
             var subjectsRepository = new SubjectsRepository();
-            Guid id = new Guid();
-            nameSubject = new PlainText("pssc");
-            credits = new Credits(4);
-            nameProfessor = new PlainText("Iercan D");
-            professor = new Models.Professor.Professor(id, nameProfessor);
             signedUpStudentsGrades = new Dictionary<Student, SubjectSituation>();
             list = new List<Grade>();
             list.Add(new Grade(4));
             list.Add(new Grade(5));
-
-            signedUpStudentsGrades.Add(new Student(Guid.NewGuid(), new RegistrationNumber("1234"), new PlainText("ecaterina"), new Credits(30)),
-                new SubjectSituation(new Attendance(2), list, new Grade(8)));
-
-            subjectInformation = new SubjectInformation(nameSubject, credits, EvaluationType.Distributed, Proportion.OneThird, professor);
+            
+            subjectInformation = new SubjectInformation(new PlainText("PSSC"), new Credits(4), EvaluationType.Distributed, Proportion.OneThird,
+                new Models.Professor.Professor(Guid.NewGuid(), new PlainText("Iercan D")));
             var subject = new Subject(subjectInformation);
-            var _subject = SubjectsFactory.Instance.createInstance(subject);
+            var _subject = SubjectsFactory.Instance.createInstance(subjectInformation);   
 
             subjectsRepository.Add(_subject);
+
+            Console.WriteLine("\nSubject: " + _subject.SubjectInfo.Name.Text + ", \n" + _subject.SubjectInfo.Credits.Count.ToString() + ", \n" +
+                _subject.SubjectInfo.Evaluation.ToString() + ", \n" + _subject.SubjectInfo.ActivityProportion.ToString() +
+                 "; \n\nProfessor: " + _subject.SubjectInfo.Professor.Name.Text + ", \n" + _subject.SubjectInfo.Professor.GetId.ToString() + "\n");
+
             subjectsRepository.Delete(_subject);
 
             Console.WriteLine("\n\nPress any key to terminate.");

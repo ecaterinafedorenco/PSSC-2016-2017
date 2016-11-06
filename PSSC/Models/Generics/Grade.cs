@@ -10,7 +10,7 @@ namespace Models.Generics
 
         public Grade(decimal value)
         {
-            Contract.Requires<ArgumentException>(value > 0, "value");
+            Contract.Requires<ArgumentException>(value > 0, "Grade value cannot be < 0!");
             _value = value;
         }
     }

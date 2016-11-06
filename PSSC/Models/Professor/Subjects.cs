@@ -4,7 +4,8 @@ using System.Collections.ObjectModel;
 
 namespace Models.Professor
 {
-    //Aggregate Root
+    // Aggregate Root
+    // List of subjects for deanship
     public class Subjects
     {
         private List<Subject.Subject> _subjects;

@@ -10,7 +10,7 @@ namespace Models.Generics
 
         public PlainText(string text)
         {
-            Contract.Requires<ArgumentNullException>(text != null, "text");
+            Contract.Requires<ArgumentNullException>(text != null, "Argument cannont be null");
             _text = text;
         }
     }

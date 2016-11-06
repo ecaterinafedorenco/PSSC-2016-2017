@@ -4,20 +4,18 @@ using System.Collections.Generic;
 
 namespace Models.Factory
 {
+    // Creates a SubjectsFactory instance
     public class SubjectsFactory
     {
         public static readonly SubjectsFactory Instance = new SubjectsFactory();
-        List<Subject.Subject> _subjects;
-        int credits, type;
-        private string name;
 
-        public SubjectsFactory()
+        private SubjectsFactory()
         { }
 
-        public Subject.Subject createInstance(Subject.Subject subject)
+        // Creates a Subject instance
+        public Subject.Subject createInstance(Subject.SubjectInformation subjectInformation)
         {
-            subject = new Subject.Subject(new Subject.SubjectInformation(new PlainText(name), new Credits(credits),
-                new EvaluationType(), new Proportion()));
+            Subject.Subject subject = new Subject.Subject(subjectInformation);
 
             return subject;
         }

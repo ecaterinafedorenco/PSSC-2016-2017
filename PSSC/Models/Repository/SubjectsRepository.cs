@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Models.Repository
 {
+    // Repository for Subjects aggregat root
     public class SubjectsRepository : IRepository<Subject.Subject>
     {
         private static List<Models.Subject.Subject> _subjects = new List<Models.Subject.Subject>();
