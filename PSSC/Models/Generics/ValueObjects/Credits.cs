@@ -3,6 +3,10 @@ using System.Diagnostics.Contracts;
 
 namespace Models.Generics.ValueObjects
 {
+    /*
+     * Used to mark the total amount of credits which a subject yields OR the total amount of credits which a student has
+     * //TODO: Might need refactoring here
+     */
     public class Credits
     {
         private int _credits;

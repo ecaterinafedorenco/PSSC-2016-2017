@@ -19,6 +19,8 @@ namespace Models.Generics
      * http://enterprisecraftsmanship.com/2014/11/08/domain-object-base-class/
      * http://stackoverflow.com/questions/6218328/base-classes-entity-and-valueobject-in-domain-driven-design
      * http://stackoverflow.com/questions/2326288/implementing-ddd-entity-class-in-c-sharp
+     * 
+     * Entity class used to offer 'identity' to domain entities
      */
 
     public abstract class Entity<T> : IEquatable<T>

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.ValueObjects
 {
+    /*
+     * Used as an unique identifier for students
+     */
     public class RegistrationNumber
     {
         private string _number;

@@ -8,7 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Models.Contexts.Deanship
-{
+{/*
+     * Entity
+     * A DefinedSubject is a class which describes every aspect of a subject, such as:
+     * 1. The professor
+     * 2. The exam type
+     * 3. The activity proportion (when calculating the average)
+     * 4. The enrolled students for the current subject and their subject situation
+     */
     public class DefinedSubject : Subject
     {
         public Common.Professor.Professor Professor { get; internal set; }

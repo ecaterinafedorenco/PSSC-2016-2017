@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Models.Contexts.Professor
 {
+    /*
+     * Entity
+     * A TeachingSubject is a class which describes:
+     * 1. All the enrolled students for the current subject, along with their subject situation
+     * 2. The activity proportion
+     */
     public class TeachingSubject : Subject
     {
         private Dictionary<Common.Student.Student, GradeableSituation> _enrolledStudents { get; set; }

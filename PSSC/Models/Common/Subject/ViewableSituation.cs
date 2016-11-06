@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Subject
 {
+    /*
+     * Entity which describes a students subject situation
+     * Readonly entity - unable to propagate modifications
+     */
     public class ViewableSituation : SubjectSituation
     {
         public ReadOnlyCollection<Attendance> Attendances { get { return _attendances.AsReadOnly(); } }

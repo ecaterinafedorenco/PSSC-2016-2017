@@ -11,7 +11,14 @@ using System.Diagnostics.Contracts;
 
 namespace Models.Contexts.Professor
 {
-    //Aggregate Root
+    /*
+     * Aggregate root
+     * Professor interacts with a list of his 'TeachingSubjects' (Assigned subjects) and he is able to:
+     * 1. Grade students
+     * 2. Modify grades
+     * 3. Add attendances
+     * 4. Set the proportion of the activity grade (used when calculating the average)
+     */
     public class Subjects : Entity<Guid>
     {
         private HashSet<TeachingSubject> _subjects { get; set; }

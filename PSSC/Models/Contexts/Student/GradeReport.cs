@@ -11,7 +11,11 @@ using System.Threading.Tasks;
 
 namespace Models.Contexts.Student
 {
-    //Aggregate Root
+    /*
+     * Aggregate root
+     * Student interacts with a set of Subjects to which he has enrolled ('EnrolledSubject')
+     * He is only able to retrieve his 'SubjectSituation' for any 'EnrolledSubject'
+     */
     public class GradeReport : Entity<RegistrationNumber>
     {
         private HashSet<EnrolledSubject> _gradeReport { get; set; }

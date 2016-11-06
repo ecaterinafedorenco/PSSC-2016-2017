@@ -11,7 +11,17 @@ using System.Threading.Tasks;
 
 namespace Models.Contexts.Deanship
 {
-    //Aggregate Root
+    /*
+     * Aggregate root
+     * Deanship interacts with a list of 'DefinedSubjects'. It is able to:
+     * 1. Define new subjects
+     * 2. Enroll students to subjects
+     * 3. View the subject situation for any student
+     * 4. Calculate students average
+     * 
+     * !?TODO!?:
+     * 1. Possibility to add students
+     */
     public class StudyYear : Entity<Guid>
     {
         private HashSet<DefinedSubject> _definedSubjects;

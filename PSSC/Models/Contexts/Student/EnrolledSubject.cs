@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Models.Contexts.Student
 {
+    /*
+     * Entity
+     * An EnrolledSubject is a class that describes:
+     * 1. The students current subject situation
+     * 2. The subject's professor
+     */
     public class EnrolledSubject : Subject
     {
         public Common.Professor.Professor Professor { get; set; }

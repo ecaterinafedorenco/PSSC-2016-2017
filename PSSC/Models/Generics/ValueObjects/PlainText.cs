@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.ValueObjects
 {
+    /*
+     * Used to describe a plain text string
+     */
     public class PlainText
     {
         private string _text;

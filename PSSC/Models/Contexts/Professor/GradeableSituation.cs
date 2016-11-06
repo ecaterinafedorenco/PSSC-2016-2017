@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Models.Contexts.Professor
 {
+    /*
+     * SubjectSituation implementation
+     */
     public class GradeableSituation : SubjectSituation
     {
         public List<Attendance> Attendances { get { return _attendances; } set { _attendances = value; } }

@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.ValueObjects
 {
-    //Possible 'description' field needed for activity grades (Test, Project)
+    /*
+     * Used to describe a students grade - its value and the date of receival
+     */
     public class Grade
     {
         private decimal _value;

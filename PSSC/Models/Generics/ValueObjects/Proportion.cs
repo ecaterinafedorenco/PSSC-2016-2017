@@ -4,6 +4,9 @@ using System.Diagnostics.Contracts;
 
 namespace Models.Generics.ValueObjects
 {
+    /*
+     * Used to describe the proportion of an activity when calculating the subject's average
+     */
     public class Proportion
     {
         private int _numerator;

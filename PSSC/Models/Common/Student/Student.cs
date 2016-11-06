@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Student
 {
-    //Entity
+    /*
+     * Entity which describes a 'student':
+     * 1. Registration number
+     * 2. Name
+     * 3. Accumulated credits
+     */
     public class Student : Entity<RegistrationNumber>
     {
         public RegistrationNumber RegNumber { get; internal set; }

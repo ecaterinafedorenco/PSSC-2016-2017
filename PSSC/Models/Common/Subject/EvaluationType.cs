@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Subject
 {
+    /*
+     * enum used to describe the exam type for a certain subject
+     */
     public enum EvaluationType
     {
         Distributed,

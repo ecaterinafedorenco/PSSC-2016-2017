@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Subject
 {
+    /*
+     * Basic subject situation which describes a student's grades
+     * Has 2 implementations:
+     * 1. ViewableSituation (Unmodifiable / Readonly - Used in the Deanship and Student context)
+     * 2. GradableSituation (Used in the Professor context)
+     */
     public abstract class SubjectSituation : Entity<RegistrationNumber> //Guid? 
     {
         protected List<Attendance> _attendances { get; set; }

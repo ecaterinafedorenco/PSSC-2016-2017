@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.ValueObjects
 {
+    /*
+     * Used to mark a point in time, when the student was present at a certain Subject
+     */
     public class Attendance
     {
         private DateTime _date;

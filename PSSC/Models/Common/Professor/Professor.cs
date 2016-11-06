@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace Models.Common.Professor
 {
-    //Entity
+    /*
+     * Entity which describes a 'professor'
+     */
     public class Professor : Entity<PlainText>
     {
         public PlainText Name { get; internal set; }
