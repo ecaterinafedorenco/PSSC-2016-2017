@@ -4,18 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.Student
 {
     //Aggregate Root
     public class GradeReport
     {
+        private Guid _gradeReportId;
         private ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> _gradeReport;
 
-        public GradeReport(ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> gradeReport)
+        public GradeReport(Guid gradeReportId, ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> gradeReport)
         {
+            _gradeReportId = gradeReportId;
             _gradeReport = gradeReport;
         }
 

@@ -23,7 +23,7 @@ namespace Models.Subject
             ActivityProportion = activity;
         }
 
-        public SubjectInformation(PlainText name, Credits credits, EvaluationType type, Proportion activity, Professor.Professor professor) 
+        public SubjectInformation(PlainText name, Credits credits, EvaluationType type, Proportion activity, Professor.Professor professor)
             : this(name, credits, type, activity)
         {
             Professor = professor;

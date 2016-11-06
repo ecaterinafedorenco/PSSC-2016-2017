@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Models.Subject;
 
 namespace Models.Repository
 {
-    public class SubjectRepository : IRepository<Subject.Subject>
+    public class SubjectsRepository : IRepository<Subject.Subject>
     {
         private static List<Models.Subject.Subject> _subjects = new List<Models.Subject.Subject>();
+        private static Professor.Subjects subjects = new Professor.Subjects(_subjects);
 
-        public SubjectRepository()
-        {
-
-        }
+        public SubjectsRepository() { }
 
         public IEnumerable<Subject.Subject> List
         {
             get
             {
-                return _subjects;
+                return subjects.AllSubjects;
             }
         }
 
         public void Add(Subject.Subject entity)
         {
-            var result = _subjects.FirstOrDefault(s => s.Equals(entity));
+            var result = subjects.AllSubjects.FirstOrDefault(s => s.Equals(entity));
 
             if (result != null) throw new DuplicateWaitObjectException();
 
@@ -36,7 +31,7 @@ namespace Models.Repository
 
         public void Delete(Subject.Subject entity)
         {
-            var result = _subjects.FirstOrDefault(s => s.Equals(entity));
+            var result = subjects.AllSubjects.FirstOrDefault(s => s.Equals(entity));
 
             if (result == null) throw new MissingMemberException();
 

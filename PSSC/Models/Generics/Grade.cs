@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace Models.Generics
 {
@@ -13,6 +10,7 @@ namespace Models.Generics
 
         public Grade(decimal value)
         {
+            Contract.Requires<ArgumentException>(value > 0, "value");
             _value = value;
         }
     }

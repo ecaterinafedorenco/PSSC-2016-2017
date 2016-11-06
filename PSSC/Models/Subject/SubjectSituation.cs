@@ -1,9 +1,5 @@
 ﻿using Models.Generics;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.Subject
 {
@@ -12,7 +8,7 @@ namespace Models.Subject
         public Attendance Attendance { get; internal set; }
         public List<Grade> ExamGrades { get; internal set; }
         public Grade ActivityGrade { get; internal set; }
-        
+
         public SubjectSituation()
         {
 
@@ -49,10 +45,11 @@ namespace Models.Subject
         {
             Grade average;
 
-            if(type.Equals(EvaluationType.Distributed))
+            if (type.Equals(EvaluationType.Distributed))
             {
                 average = new Grade((ExamGrades[0].Value + ExamGrades[1].Value) / 2);
-            } else
+            }
+            else
             {
                 average = new Grade(ExamGrades[0].Value);
             }

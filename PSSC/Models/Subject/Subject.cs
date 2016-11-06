@@ -1,16 +1,15 @@
 ﻿using Models.Generics;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace Models.Subject
 {
     //Entity
     public class Subject
     {
+        public static decimal proportion;
         public Guid GetId { get; internal set; }
         public SubjectInformation SubjectInfo { get; internal set; }
 
@@ -36,16 +35,26 @@ namespace Models.Subject
 
         public void SignUpStudent(Student.Student student)
         {
+            Contract.Requires(student != null, "student");
             _signedUpStudentsGrades.Add(student, new SubjectSituation());
         }
 
         public Grade GetAverageForStudent(RegistrationNumber regNumber)
         {
+            Contract.Requires(regNumber != null, "regNumber");
             SubjectSituation situation = _signedUpStudentsGrades.First(d => d.Key.RegNumber == regNumber).Value;
 
             decimal activityGrade = situation.ActivityGrade.Value;
             decimal examAverage = situation.GetExamAverage(SubjectInfo.Evaluation);
-            decimal proportion = SubjectInfo.ActivityProportion.Fraction;
+
+            if (SubjectInfo.ActivityProportion == Proportion.OneHalf)
+            {
+                proportion = 0.5M;
+            }
+            else if (SubjectInfo.ActivityProportion == Proportion.OneThird)
+            {
+                proportion = 0.3M;
+            }
 
             return new Grade(activityGrade * proportion + (1 - proportion) * examAverage);
         }

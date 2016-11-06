@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace Models.Generics
 {
@@ -13,6 +10,8 @@ namespace Models.Generics
 
         public RegistrationNumber(string number)
         {
+            Contract.Requires<ArgumentNullException>(number != null, "regNumber");
+            Contract.Requires<ArgumentException>(number.Length == 4, "Registration number has 4 characters.");
             _number = number;
         }
     }

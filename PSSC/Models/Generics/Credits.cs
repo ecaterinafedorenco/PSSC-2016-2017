@@ -1,4 +1,7 @@
-﻿namespace Models.Generics
+﻿using System;
+using System.Diagnostics.Contracts;
+
+namespace Models.Generics
 {
     public class Credits
     {
@@ -14,6 +17,7 @@
 
         public Credits(int credits)
         {
+            Contract.Requires<ArgumentException>(credits > 0, "credits");
             _credits = credits;
         }
     }

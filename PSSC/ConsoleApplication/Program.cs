@@ -7,9 +7,6 @@ using Models.Subject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Models.EntityFramework.ContextDb;
 
 namespace ConsoleApplication
 {
@@ -19,49 +16,33 @@ namespace ConsoleApplication
         private static PlainText nameSubject;
         private static Credits credits;
         private static SubjectInformation subjectInformation;
-        private static Proportion proportion;
         private static PlainText nameProfessor;
-        //private static ProfessorRepository professorRepository = new ProfessorRepository();
+        private static Dictionary<Student, SubjectSituation> signedUpStudentsGrades;
+        private static List<Grade> list;
 
         static void Main(string[] args)
         {
-            var repository = new SubjectRepository();
+            var subjectsRepository = new SubjectsRepository();
             Guid id = new Guid();
             nameSubject = new PlainText("pssc");
             credits = new Credits(4);
-            proportion = new Proportion(1, 2);
             nameProfessor = new PlainText("Iercan D");
             professor = new Models.Professor.Professor(id, nameProfessor);
+            signedUpStudentsGrades = new Dictionary<Student, SubjectSituation>();
+            list = new List<Grade>();
+            list.Add(new Grade(4));
+            list.Add(new Grade(5));
 
-            subjectInformation = new SubjectInformation(nameSubject, credits, EvaluationType.Distributed, proportion, professor);
-            
-            //professorRepository.Add(professor);
-            var subject = SubjectsFactory.Instance.createInstance(subjectInformation);
-            
-            repository.Add(subject);
+            signedUpStudentsGrades.Add(new Student(Guid.NewGuid(), new RegistrationNumber("1234"), new PlainText("ecaterina"), new Credits(30)),
+                new SubjectSituation(new Attendance(2), list, new Grade(8)));
 
-            //subject.SignUpStudent(SubjectsFactory.Instance.createStudnet("8642", "Ecaterina Fedorenco"));
+            subjectInformation = new SubjectInformation(nameSubject, credits, EvaluationType.Distributed, Proportion.OneThird, professor);
+            var subject = new Subject(subjectInformation);
+            var _subject = SubjectsFactory.Instance.createInstance(subject);
 
-            Console.Write(repository.List.Count());
-            Console.WriteLine("\n\nline\n");
+            subjectsRepository.Add(_subject);
+            subjectsRepository.Delete(_subject);
 
-            // FOR ENTITY FRAMEWORK
-            //Context c = new Context();
-            //c.Subjects.Add(subject);
-            //c.SaveChanges();
-            
-            //var result = from r in c.Subjects select r;
-            //foreach (var r in result)
-            //{
-            //    Console.WriteLine(r.SubjectInfo.Name);
-            //}
-
-            //Console.ReadKey(true);
-
-
-            repository.Delete(subject);
-            Console.WriteLine(repository.List.Count());
-            Console.WriteLine("\nline2\n");
             Console.WriteLine("\n\nPress any key to terminate.");
             Console.ReadLine();
         }

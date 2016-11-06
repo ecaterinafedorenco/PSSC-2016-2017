@@ -1,35 +1,23 @@
 ﻿using Models.Generics;
 using Models.Subject;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.Factory
 {
     public class SubjectsFactory
     {
         public static readonly SubjectsFactory Instance = new SubjectsFactory();
-        private Proportion activity;
-        private Credits credits;
-        private PlainText name;
-        private EvaluationType type;
+        List<Subject.Subject> _subjects;
+        int credits, type;
+        private string name;
 
         public SubjectsFactory()
         { }
 
-        public Subject.Subject createInstance(SubjectInformation subjectInformation)
+        public Subject.Subject createInstance(Subject.Subject subject)
         {
-            //Contract.Requires<ArgumentNullException>(subjectInformation.Name != null, "text");
-            //Contract.Requires<ArgumentNullException>(subjectInformation.Professor.Name != null,
-            //    "Professor name should not be null.");
-            //Contract.Requires<ArgumentNullException>(subjectInformation.Credits != null,
-            //    "Professor name should not be null.");
-
-            Subject.Subject subject = new Subject.Subject(new Subject.SubjectInformation(
-                name, credits, type, activity));
+            subject = new Subject.Subject(new Subject.SubjectInformation(new PlainText(name), new Credits(credits),
+                new EvaluationType(), new Proportion()));
 
             return subject;
         }
@@ -39,11 +27,6 @@ namespace Models.Factory
             return new SubjectSituation(
                                 new Attendance(count),
                                 new Grade(value));
-        }
-
-        public Student.Student createStudnet(Guid id, string regNumber, string name)
-        {
-            return new Student.Student(id, new RegistrationNumber(regNumber), new PlainText(name));
         }
     }
 }

@@ -31,14 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,10 +43,13 @@
   <ItemGroup>
     <Compile Include="Deanship\IReportPublisher.cs" />
     <Compile Include="Deanship\StudyYear.cs" />
-    <Compile Include="EntityFramework\ContextDb.cs" />
+    <Compile Include="Factory\GradeReportFactory.cs" />
+    <Compile Include="Factory\StudyYearFactory.cs" />
     <Compile Include="Factory\SubjectsFactory.cs" />
     <Compile Include="Generics\Attendence.cs" />
     <Compile Include="Generics\Credits.cs" />
+    <Compile Include="Generics\Exceptions\ArgumentCannotBeEmptyStringException.cs" />
+    <Compile Include="Generics\Exceptions\ArgumentInvalidLengthException.cs" />
     <Compile Include="Generics\Exceptions\InvalidCreditsValue.cs" />
     <Compile Include="Generics\Grade.cs" />
     <Compile Include="Generics\PlainText.cs" />
@@ -63,9 +58,9 @@
     <Compile Include="Professor\Professor.cs" />
     <Compile Include="Professor\Subjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GradeReportRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\ProfessorRepository.cs" />
-    <Compile Include="Repository\StudentRepository.cs" />
+    <Compile Include="Repository\StudyYearRepository.cs" />
     <Compile Include="Repository\SubjectRepository.cs" />
     <Compile Include="Student\GradeReport.cs" />
     <Compile Include="Student\Student.cs" />
@@ -78,7 +73,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
