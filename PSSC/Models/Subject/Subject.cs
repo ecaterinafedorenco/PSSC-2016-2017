@@ -63,5 +63,12 @@ namespace Models.Subject
         {
             return _signedUpStudentsGrades.First(d => d.Key.RegNumber == regNumber).Value;
         }
+
+        public override string ToString()
+        {
+            return "\nSubject: " + SubjectInfo.Name.Text + ", \n" + SubjectInfo.Credits.Count.ToString() + ", \n" +
+                SubjectInfo.Evaluation.ToString() + ", \n" + SubjectInfo.ActivityProportion.ToString() +
+                 "; \n\nProfessor: " + SubjectInfo.Professor.Name.Text + ", \n" + SubjectInfo.Professor.GetId.ToString() + "\n";
+        }
     }
 }

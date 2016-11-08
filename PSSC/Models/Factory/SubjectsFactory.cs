@@ -14,7 +14,7 @@ namespace Models.Factory
         { }
 
         // Creates a Subject instance
-        public Subject.Subject createInstance(Subject.SubjectInformation subjectInformation)
+        public Subject.Subject CreateInstance(Subject.SubjectInformation subjectInformation)
         {
             Contract.Requires<SubjectDublicateException>(subjectInformation.Name != null, "Argument cannont be null");
             Subject.Subject subject = new Subject.Subject(subjectInformation);
@@ -22,7 +22,7 @@ namespace Models.Factory
             return subject;
         }
 
-        public SubjectSituation subjectSituation(int count, decimal value)
+        public SubjectSituation SubjectSituation(int count, decimal value)
         {
             return new SubjectSituation(
                                 new Attendance(count),

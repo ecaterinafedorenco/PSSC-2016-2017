@@ -9,7 +9,7 @@
         { }
 
         // Creates a GreadeReport instance
-        public Student.GradeReport createInstance(Student.GradeReport gradeReport)
+        public Student.GradeReport CreateInstance(Student.GradeReport gradeReport)
         {
             return gradeReport;
         }

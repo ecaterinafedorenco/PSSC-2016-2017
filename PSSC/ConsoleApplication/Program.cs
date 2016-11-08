@@ -26,13 +26,11 @@ namespace ConsoleApplication
             subjectInformation = new SubjectInformation(new PlainText("PSSC"), new Credits(4), EvaluationType.Distributed, Proportion.OneThird,
                 new Models.Professor.Professor(Guid.NewGuid(), new PlainText("Iercan D")));
             var subject = new Subject(subjectInformation);
-            var _subject = SubjectsFactory.Instance.createInstance(subjectInformation);   
+            var _subject = SubjectsFactory.Instance.CreateInstance(subjectInformation);   
 
             subjectsRepository.Add(_subject);
 
-            Console.WriteLine("\nSubject: " + _subject.SubjectInfo.Name.Text + ", \n" + _subject.SubjectInfo.Credits.Count.ToString() + ", \n" +
-                _subject.SubjectInfo.Evaluation.ToString() + ", \n" + _subject.SubjectInfo.ActivityProportion.ToString() +
-                 "; \n\nProfessor: " + _subject.SubjectInfo.Professor.Name.Text + ", \n" + _subject.SubjectInfo.Professor.GetId.ToString() + "\n");
+            Console.WriteLine(_subject);
 
             subjectsRepository.Delete(_subject);
 

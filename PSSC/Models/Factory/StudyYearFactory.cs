@@ -15,7 +15,7 @@ namespace Models.Factory
         { }
 
         // Creates a StudyYear instance
-        public Deanship.StudyYear createInstance(Deanship.StudyYear studyYear)
+        public Deanship.StudyYear CreateInstance(Deanship.StudyYear studyYear)
         {
             return studyYear;
         }
