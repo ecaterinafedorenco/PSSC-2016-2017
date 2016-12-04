@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.Exceptions
 {
-    public class InvalidCreditsValue : Exception
+    public class InvalidCreditsValueException: Exception
     {
+        public InvalidCreditsValueException()
+        {
+
+        }
     }
 }

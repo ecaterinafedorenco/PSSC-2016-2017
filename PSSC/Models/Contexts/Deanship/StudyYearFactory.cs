@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Subject
+namespace Models.Contexts.Deanship
 {
-    public enum EvaluationType
+    class StudyYearFactory
     {
-        Distributed,
-        Exam
     }
 }
