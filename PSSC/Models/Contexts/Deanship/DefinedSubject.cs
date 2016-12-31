@@ -16,7 +16,7 @@ namespace Models.Contexts.Deanship
      * 3. The activity proportion (when calculating the average)
      * 4. The enrolled students for the current subject and their subject situation
      */
-    public class DefinedSubject : Subject
+    public class DefinedSubject : Subjects
     {
         public Common.Professor.Professor Professor { get; internal set; }
         public EvaluationType ExamType { get; internal set; }

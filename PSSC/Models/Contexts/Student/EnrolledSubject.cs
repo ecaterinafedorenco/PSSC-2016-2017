@@ -15,7 +15,7 @@ namespace Models.Contexts.Student
      * 1. The students current subject situation
      * 2. The subject's professor
      */
-    public class EnrolledSubject : Subject
+    public class EnrolledSubject : Subjects
     {
         public Common.Professor.Professor Professor { get; set; }
         public ViewableSituation Situation { get; set; }

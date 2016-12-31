@@ -24,6 +24,8 @@ namespace Models.Contexts.Professor
         private HashSet<TeachingSubject> _subjects { get; set; }
         public ReadOnlyCollection<TeachingSubject> AllSubjects { get { return _subjects.ToList().AsReadOnly(); } }
 
+        public Guid GetId { get; internal set; }
+
         private Subjects(Guid id) : base(id)
         {
             Contract.Requires<ArgumentException>(id != null, "Guid is null!");

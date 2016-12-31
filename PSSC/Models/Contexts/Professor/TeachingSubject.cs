@@ -15,7 +15,7 @@ namespace Models.Contexts.Professor
      * 1. All the enrolled students for the current subject, along with their subject situation
      * 2. The activity proportion
      */
-    public class TeachingSubject : Subject
+    public class TeachingSubject : Common.Subject.Subjects
     {
         private Dictionary<Common.Student.Student, GradeableSituation> _enrolledStudents { get; set; }
 
