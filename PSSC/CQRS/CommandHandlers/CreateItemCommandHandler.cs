@@ -28,8 +28,6 @@ namespace CQRS.CommandHandlers
                 throw new InvalidOperationException("Repository is not initialized.");
             }
             var aggregate = new SubjectsRepository(command.Id, command.Title, command.Description, command.From, command.To);
-            aggregate.Version = -1;
-            _repository.Save(aggregate, aggregate.Version);
         }
     }
 }

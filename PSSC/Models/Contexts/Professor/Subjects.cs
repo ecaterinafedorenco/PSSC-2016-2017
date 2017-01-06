@@ -50,6 +50,10 @@ namespace Models.Contexts.Professor
             _subjects = subjects;
         }
 
+        public Subjects(Guid id) : base(id)
+        {
+        }
+
         public void AddExamGrade(PlainText subjectName, RegistrationNumber regNumber, Grade grade)
         {
             Contract.Requires(subjectName != null, "Subject name is null!");

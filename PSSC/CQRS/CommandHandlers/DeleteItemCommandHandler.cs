@@ -24,9 +24,8 @@ namespace CQRS.CommandHandlers
                 throw new InvalidOperationException("Repository is not initialized.");
             }
 
-            var aggregate = _repository.GetById(command.Id);
-            aggregate.Delete();
-            _repository.Save(aggregate, aggregate.Version);
+            var aggregate = _repository.FindById(command.Id);
+            _repository.Delete(aggregate);
 
         }
     }
