@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Common.Subject;
 
 namespace Models.Repository
 {
@@ -29,6 +30,11 @@ namespace Models.Repository
         }
 
         public GradeReport FindById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save(Subjects aggregate)
         {
             throw new NotImplementedException();
         }

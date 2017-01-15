@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
+    //[Authorize] - start with login
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -13,12 +15,18 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public ActionResult About()
+        /*Students thePerson = new Students("12");
+        public ActionResult Index()
         {
-            ViewBag.Message = "Your application description page.";
+            return View(thePerson);
+        }*/
+
+        /*public ActionResult Students()
+        {
+            ViewBag.Message = "Students situation.";
 
             return View();
-        }
+        }*/
 
         public ActionResult Contact()
         {
@@ -28,3 +36,4 @@ namespace WebApplication.Controllers
         }
     }
 }
+ 

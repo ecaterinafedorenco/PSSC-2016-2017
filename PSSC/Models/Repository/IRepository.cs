@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Common.Subject;
 
 namespace Models.Repository
 {
@@ -13,5 +14,6 @@ namespace Models.Repository
         void Delete(T entity);
         void Update(T entity);
         T FindById(Guid Id);
+        void Save(Subjects aggregate);
     }
 }

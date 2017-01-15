@@ -1,6 +1,14 @@
-﻿namespace CQRS.EventHandler
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CQRS.EventHandler
 {
-    internal interface IReportDatabase
+    public interface IReportDatabase
     {
+        void Add(SubjectItem item);
+        void Delete(object aggregateId);
     }
 }

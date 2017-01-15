@@ -1,6 +1,13 @@
-﻿namespace CQRS.Commands
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CQRS.Commands
 {
-    public interface ICommand
+    public class ICommand
     {
+        Guid Id { get; }
     }
 }

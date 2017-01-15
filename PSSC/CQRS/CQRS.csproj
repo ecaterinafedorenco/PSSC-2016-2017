@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B8F00B19-49C1-493F-A065-E7FCA0270037}</ProjectGuid>
+    <ProjectGuid>{81C7F953-3138-4303-A6CE-E861CE6A095C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CQRS</RootNamespace>
@@ -40,33 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandlers\ChangeItemCommandHandler.cs" />
-    <Compile Include="CommandHandlers\CreateItemCommandHandler.cs" />
-    <Compile Include="CommandHandlers\DeleteItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ChangeCommandHandler.cs" />
     <Compile Include="CommandHandlers\ICommandHandler.cs" />
-    <Compile Include="Commands\ChangeItemCommand.cs" />
+    <Compile Include="Commands\ChangeCommand.cs" />
     <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\CreateItemCommand.cs" />
-    <Compile Include="Commands\DeleteItemCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="EventHandler\CreatedEventHandler.cs" />
+    <Compile Include="EventHandler\DeletedEventHandler.cs" />
     <Compile Include="EventHandler\IEventHandler.cs" />
     <Compile Include="EventHandler\IReportDatabase.cs" />
-    <Compile Include="EventHandler\ItemCreatedEventHandler.cs" />
-    <Compile Include="EventHandler\ItemDeletedEventHandler.cs" />
+    <Compile Include="EventHandler\SubjectItem.cs" />
+    <Compile Include="Events\CreatedEvent.cs" />
+    <Compile Include="Events\DeletedEvent.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IHandle.cs" />
-    <Compile Include="Events\ItemCreatedEvent.cs" />
-    <Compile Include="Events\ItemDeletedEvent.cs" />
-    <Compile Include="Messaging\CommandBus.cs" />
-    <Compile Include="Messaging\EventBus.cs" />
-    <Compile Include="Messaging\ICommandBus.cs" />
-    <Compile Include="Messaging\ICommandHandlerFactory.cs" />
-    <Compile Include="Messaging\IEventBus.cs" />
-    <Compile Include="Messaging\IEventHandlerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{45efb7e7-7532-422b-9d4c-c9d89402758a}</Project>

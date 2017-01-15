@@ -2,18 +2,19 @@
 using Models.Repository;
 using System;
 
+
 namespace CQRS.CommandHandlers
 {
-    public class DeleteItemCommandHandler : ICommandHandler<DeleteItemCommand>
+    public class ChangeCommandHandler : ICommandHandler<ChangeCommand> 
     {
         private readonly IRepository<SubjectsRepository> _repository;
 
-        public DeleteItemCommandHandler(IRepository<SubjectsRepository> repository)
+        public ChangeCommandHandler(IRepository<SubjectsRepository> repository)
         {
             _repository = repository;
         }
 
-        public void Execute(DeleteItemCommand command)
+        public void Execute(ChangeCommand command)
         {
             if (command == null)
             {
@@ -23,10 +24,8 @@ namespace CQRS.CommandHandlers
             {
                 throw new InvalidOperationException("Repository is not initialized.");
             }
-
-            var aggregate = _repository.FindById(command.Id);
-            _repository.Delete(aggregate);
-
+            //var aggregate = new Subject(command.Name, command.Credits);
+            //_repository.Save(aggregate);
         }
     }
 }

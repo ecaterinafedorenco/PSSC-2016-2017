@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CQRS.Events
 {
-    public class ItemDeletedEvent : Event
+    public class DeletedEvent : Event
     {
-        public ItemDeletedEvent(Guid aggregateId)
+        public DeletedEvent(Guid aggregateId)
         {
             AggregateId = aggregateId;
         }

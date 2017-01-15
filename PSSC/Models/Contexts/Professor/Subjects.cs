@@ -2,9 +2,6 @@
 using System.Collections.ObjectModel;
 using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Models.Common.Subject;
 using Models.Generics.ValueObjects;
 using Models.Generics;
 using System.Diagnostics.Contracts;
@@ -48,10 +45,6 @@ namespace Models.Contexts.Professor
             Contract.Requires(subjects != null, "Teaching subject list is null!");
 
             _subjects = subjects;
-        }
-
-        public Subjects(Guid id) : base(id)
-        {
         }
 
         public void AddExamGrade(PlainText subjectName, RegistrationNumber regNumber, Grade grade)

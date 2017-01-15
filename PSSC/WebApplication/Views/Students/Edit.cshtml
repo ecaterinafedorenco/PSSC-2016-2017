@@ -1,0 +1,32 @@
+﻿@model WebApplication.Models.Students
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>New</h2>
+<div>
+    @using (Html.BeginForm("Edit", "Students"))
+    {
+        <p>
+            <table>
+                <tr>
+                    <td> @Html.LabelFor(x => x.registrationNumber)</td>
+                    <td> @Html.TextBoxFor(x => x.registrationNumber)</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.name)</td>
+                    <td>@Html.TextBoxFor(x => x.name)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.credits)</td>
+                    <td>@Html.TextBoxFor(x => x.credits)</td>
+                </tr>
+            </table>
+        </p>
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    }
+</div>

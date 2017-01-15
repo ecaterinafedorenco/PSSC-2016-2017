@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CQRS.Commands
 {
-    [Serializable]
-    public class Command : ICommand
+    public class Command
     {
         public Guid Id { get; private set; }
-        public int Version { get; private set; }
-        public Command(Guid id, int version)
+        public Command(Guid id)
         {
             Id = id;
-            Version = version;
         }
     }
 }

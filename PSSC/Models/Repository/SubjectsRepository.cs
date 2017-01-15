@@ -13,7 +13,7 @@ namespace Models.Repository
     public class SubjectsRepository : IRepository<Contexts.Professor.Subjects>
     {
         private static List<Contexts.Professor.Subjects> _subjects = new List<Contexts.Professor.Subjects>();
-        private static Contexts.Professor.Subjects subjects = new Contexts.Professor.Subjects(_subjects);
+        private static Contexts.Professor.Subjects subjects;// = new Contexts.Professor.Subjects(_subjects);
 
         public IEnumerable<Contexts.Professor.Subjects> List
         {
@@ -54,6 +54,11 @@ namespace Models.Repository
             Console.WriteLine("A subject with given id - " + Id + " was found.");
 
             return result;
+        }
+
+        public void Save(Common.Subject.Subjects aggregate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

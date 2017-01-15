@@ -3,21 +3,20 @@
 }
 
 <div class="jumbotron">
-    <h1>HOMET</h1>
-    <p class="lead">Here you can find all detail about professors, students and subjects.</p>
+    <h1>HOME</h1>
+    <p class="lead">Here you can find all the details about professors, students and subjects.</p>
     <!-- <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p> -->
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Information</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            To visualize the information about your situation.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
+        <!--<p><a class="btn btn-default" href="https://google.com">Log in &raquo;</a></p>-->
+        <p><a class="btn btn-default" onclick="location.href='@Url.Action("Index", "Students")'">Press the button &raquo;</a></p>  
+     </div>
     <!-- <div class="col-md-4">
         <h2>Get more libraries</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
