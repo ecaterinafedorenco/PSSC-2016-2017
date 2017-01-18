@@ -1,5 +1,5 @@
 ﻿@model WebApplication.Models.Students
-
+@using System.Data
 @{
     ViewBag.Title = "Index";
 }
@@ -8,6 +8,32 @@
 <p>
     <a href="@Url.Action("Edit")">Edit student</a><br />
 </p>
-<ul>
-    
-</ul>
+<div>
+    @if (Model != null)
+    {
+    <table border="1">
+        <thead>
+            <tr>
+                @foreach(System.Data.DataColumn col in Model.Columns)
+                {
+                    <th>@col.Caption</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow row in Model.Rows)
+            {
+                <tr>
+                    @foreach(var cell in row.ItemArray)
+                    {
+                        if (cell != null)
+                        {
+                            <td>@cell.ToString();</td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>

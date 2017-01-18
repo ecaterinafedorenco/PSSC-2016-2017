@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,8 +15,21 @@ namespace WebApplication.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Students situation.";
+            SqlConnection con = new SqlConnection();
+            string path = ConfigurationManager.ConnectionStrings["mvc"].ConnectionString;
+            con.ConnectionString = path;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlDataAdapter adp = new SqlDataAdapter("select * from students", con);
+                adp.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }             
             
-            return View();
+            return View(dt);
         }
 
         // GET: Students/Details/5
