@@ -1,13 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CQRS.Commands
 {
     public class ICommand
     {
+<<<<<<< HEAD:PSSC/CQRS/Commands/ICommand.cs
         Guid Id { get; }
+=======
+        Credits credits;
+        public InvalidCreditsValue(string message)
+            : base(message)
+        {
+            if (credits.Count < 0)
+            {
+                throw new ArgumentException("Invalid Credits Value");
+            }
+        }
+>>>>>>> 78fd45ae9705b12e934894956018ead12d28df4c:PSSC/Models/Generics/Exceptions/InvalidCreditsValue.cs
     }
 }
